@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Product Showcase</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo">3D<span>Vision</span></div>
+                <div class="tagline">Experience Products in 3D</div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        <section class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Select Product</h5>
+                    </div>
+                    <div class="card-body d-flex justify-content-center flex-wrap">
+                        <button id="model1-btn" class="btn btn-outline-primary m-2 model-btn active">
+                            <i class="fas fa-prescription-bottle me-2"></i>Jar Container
+                        </button>
+                        <button id="model2-btn" class="btn btn-outline-primary m-2 model-btn">
+                            <i class="fas fa-beer me-2"></i>Soda Can
+                        </button>
+                        <button id="model3-btn" class="btn btn-outline-primary m-2 model-btn">
+                            <i class="fas fa-flask me-2"></i>Thermal Bottle
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">3D Viewer</h5>
+                        <div>
+                            <button id="fullscreen-btn" class="btn btn-sm btn-outline-light">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0 position-relative">
+                        <canvas id="3d-canvas" class="w-100"></canvas>
+
+                        <div id="loading-indicator" class="position-absolute top-50 start-50 translate-middle">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <div class="mt-2 text-center">Loading Model...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">Controls</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <h6 class="fw-bold">Visualization</h6>
+                            <div class="d-flex flex-wrap">
+                                <button id="wireframe-btn" class="btn btn-sm btn-outline-secondary m-1">
+                                    <i class="fas fa-vector-square me-1"></i>Wireframe
+                                </button>
+                                <button id="rotate-btn" class="btn btn-sm btn-outline-secondary m-1">
+                                    <i class="fas fa-sync-alt me-1"></i>Auto-Rotate
+                                </button>
+                                <button id="reset-btn" class="btn btn-sm btn-outline-secondary m-1">
+                                    <i class="fas fa-undo me-1"></i>Reset View
+                                </button>
+                            </div>
+                            <div class="mt-3">
+                                <label for="zoom-control" class="form-label">Zoom Level</label>
+                                <input type="range" class="form-range" id="zoom-control" min="0.5" max="20" step="0.5"
+                                    value="7">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6 class="fw-bold">Lighting</h6>
+                            <div class="mb-2">
+                                <label for="ambient-light" class="form-label">Ambient Light</label>
+                                <input type="range" class="form-range" id="ambient-light" min="0" max="1" step="0.1"
+                                    value="0.5">
+                            </div>
+                            <div class="mb-2">
+                                <label for="directional-light" class="form-label">Directional Light</label>
+                                <input type="range" class="form-range" id="directional-light" min="0" max="1" step="0.1"
+                                    value="0.7">
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="spotlight-toggle" checked>
+                                <label class="form-check-label" for="spotlight-toggle">Spotlight</label>
+                            </div>
+                        </div>
+
+                        <div id="product-info">
+                            <h6 class="fw-bold">Product Information</h6>
+                            <div id="model1-info" class="model-info active">
+                                <p><strong>Jar Container</strong> - A brown container with ridged cap for easy opening.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li><small>Volume: 300ml</small></li>
+                                    <li><small>Material: Glass with plastic cap</small></li>
+                                    <li><small>Use: Food storage and preservation</small></li>
+                                </ul>
+                            </div>
+                            <div id="model2-info" class="model-info d-none">
+                                <p><strong>Soda Can</strong> - Bright red classic aluminum can design.</p>
+                                <ul class="list-unstyled">
+                                    <li><small>Volume: 330ml</small></li>
+                                    <li><small>Material: Aluminum with pull tab</small></li>
+                                    <li><small>Use: Carbonated beverages</small></li>
+                                </ul>
+                            </div>
+                            <div id="model3-info" class="model-info d-none">
+                                <p><strong>Thermal Bottle</strong> - Yellow insulated bottle with metallic cap and
+                                    handle.</p>
+                                <ul class="list-unstyled">
+                                    <li><small>Volume: 500ml</small></li>
+                                    <li><small>Material: Double-walled insulated steel</small></li>
+                                    <li><small>Use: Hot and cold beverage retention</small></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-dark text-white">
+                        <ul class="nav nav-tabs card-header-tabs" id="media-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" data-bs-toggle="tab"
+                                    href="#description-tab">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" data-bs-toggle="tab" href="#gallery-tab">Gallery</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" data-bs-toggle="tab" href="#video-tab">Video</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="description-tab">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h5>Product Details</h5>
+                                        <p>Our 3D product line features innovative designs that combine functionality
+                                            with aesthetic appeal. Each product is crafted with attention to detail and
+                                            using sustainable materials wherever possible.</p>
+                                        <p>Interact with our 3D models to explore every angle and feature of our
+                                            products. Use the controls provided to customize your viewing experience.
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="bg-light p-3 rounded">
+                                            <h6>Key Features</h6>
+                                            <ul>
+                                                <li>Ergonomic design</li>
+                                                <li>Sustainable materials</li>
+                                                <li>Premium finish</li>
+                                                <li>Innovative technology</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="gallery-tab">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <img src="./textures/jar.jpg" alt="jar" class="img-fluid rounded">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="./textures/soda.jpg" alt="soda" class="img-fluid rounded">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img src="./textures/water-bottle.jpg" alt="water-bottle"
+                                            class="img-fluid rounded">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="video-tab">
+                                <div class="ratio ratio-16x9">
+                                    <video controls>
+                                        <source src="./textures/videoplayback.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>3D Vision</h5>
+                    <p class="small">Experience Products in 3D</p>
+                    <p class="small">&copy; 2025 3D Vision. All rights reserved.</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50">Home</a></li>
+                        <li><a href="about.html" class="text-white-50">About</a></li>
+                        <li><a href="#" class="text-white-50">Statement of Originality</a></li>
+                        <li><a href="https://github.com/yourusername/3d-product-showcase" target="_blank"
+                                class="text-white-50">GitHub</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6>Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="https://threejs.org/" target="_blank" class="text-white-50">Three.js</a></li>
+                        <li><a href="https://getbootstrap.com/" target="_blank" class="text-white-50">Bootstrap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/modelLoader.js"></script>
+    <script src="js/controls.js"></script>
+</body>
+
+</html>
