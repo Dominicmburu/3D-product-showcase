@@ -1,4 +1,3 @@
-
 let scene, camera, renderer, controls;
 let loadingManager, gltfLoader;
 let currentModel = null;
@@ -73,6 +72,7 @@ function setupLoadingManager() {
     };
     
     loadingManager.onProgress = function(url, itemsLoaded, itemsTotal) {
+        // Progress tracking can be implemented here
     };
     
     loadingManager.onError = function(url) {
@@ -110,9 +110,9 @@ function loadModel(modelId) {
     controls.reset();
     
     const modelPaths = {
-        'model1': 'models/jar.glb',
-        'model2': 'models/soda_can.glb',
-        'model3': 'models/Water_bottle.glb'
+        'model1': 'models/soda can.glb',
+        'model2': 'models/coca-cola.glb',
+        'model3': 'models/SodaCan.glb'
     };
     
     const path = modelPaths[modelId];

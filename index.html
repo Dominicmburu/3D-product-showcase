@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Product Showcase</title>
+    <title>My Cola 3D Product Showcase</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <div class="logo">3D<span>Vision</span></div>
-                <div class="tagline">Experience Products in 3D</div>
+                <div class="logo">My<span>Cola</span></div>
+                <div class="tagline">Experience Coca-Cola Products in 3D</div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -31,6 +31,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="statement.html">Statement of Originality</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -40,18 +43,18 @@
         <section class="row mb-4">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header bg-dark text-white">
+                    <div class="card-header bg-danger text-white">
                         <h5 class="mb-0">Select Product</h5>
                     </div>
                     <div class="card-body d-flex justify-content-center flex-wrap">
-                        <button id="model1-btn" class="btn btn-outline-primary m-2 model-btn active">
-                            <i class="fas fa-prescription-bottle me-2"></i>Jar Container
+                        <button id="model1-btn" class="btn btn-outline-danger m-2 model-btn active">
+                            <i class="fas fa-beer me-2"></i>Coke Can
                         </button>
-                        <button id="model2-btn" class="btn btn-outline-primary m-2 model-btn">
-                            <i class="fas fa-beer me-2"></i>Soda Can
+                        <button id="model2-btn" class="btn btn-outline-danger m-2 model-btn">
+                            <i class="fas fa-beer me-2"></i>Fanta Can
                         </button>
-                        <button id="model3-btn" class="btn btn-outline-primary m-2 model-btn">
-                            <i class="fas fa-flask me-2"></i>Thermal Bottle
+                        <button id="model3-btn" class="btn btn-outline-danger m-2 model-btn">
+                            <i class="fas fa-flask me-2"></i>Sprite Bottle
                         </button>
                     </div>
                 </div>
@@ -61,7 +64,7 @@
         <section class="row">
             <div class="col-lg-8 mb-4">
                 <div class="card h-100">
-                    <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                    <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">3D Viewer</h5>
                         <div>
                             <button id="fullscreen-btn" class="btn btn-sm btn-outline-light">
@@ -73,7 +76,7 @@
                         <canvas id="3d-canvas" class="w-100"></canvas>
 
                         <div id="loading-indicator" class="position-absolute top-50 start-50 translate-middle">
-                            <div class="spinner-border text-primary" role="status">
+                            <div class="spinner-border text-danger" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                             <div class="mt-2 text-center">Loading Model...</div>
@@ -84,7 +87,7 @@
 
             <div class="col-lg-4 mb-4">
                 <div class="card h-100">
-                    <div class="card-header bg-dark text-white">
+                    <div class="card-header bg-danger text-white">
                         <h5 class="mb-0">Controls</h5>
                     </div>
                     <div class="card-body">
@@ -129,29 +132,27 @@
                         <div id="product-info">
                             <h6 class="fw-bold">Product Information</h6>
                             <div id="model1-info" class="model-info active">
-                                <p><strong>Jar Container</strong> - A brown container with ridged cap for easy opening.
-                                </p>
-                                <ul class="list-unstyled">
-                                    <li><small>Volume: 300ml</small></li>
-                                    <li><small>Material: Glass with plastic cap</small></li>
-                                    <li><small>Use: Food storage and preservation</small></li>
-                                </ul>
-                            </div>
-                            <div id="model2-info" class="model-info d-none">
-                                <p><strong>Soda Can</strong> - Bright red classic aluminum can design.</p>
+                                <p><strong>Coke Can</strong> - Classic red Coca-Cola can design with iconic branding.</p>
                                 <ul class="list-unstyled">
                                     <li><small>Volume: 330ml</small></li>
                                     <li><small>Material: Aluminum with pull tab</small></li>
-                                    <li><small>Use: Carbonated beverages</small></li>
+                                    <li><small>Use: Coca-Cola carbonated beverage</small></li>
+                                </ul>
+                            </div>
+                            <div id="model2-info" class="model-info d-none">
+                                <p><strong>Fanta Can</strong> - Bright orange container with vibrant Fanta branding.</p>
+                                <ul class="list-unstyled">
+                                    <li><small>Volume: 330ml</small></li>
+                                    <li><small>Material: Aluminum with pull tab</small></li>
+                                    <li><small>Use: Orange-flavored carbonated beverage</small></li>
                                 </ul>
                             </div>
                             <div id="model3-info" class="model-info d-none">
-                                <p><strong>Thermal Bottle</strong> - Yellow insulated bottle with metallic cap and
-                                    handle.</p>
+                                <p><strong>Sprite Bottle</strong> - Green-tinted transparent bottle with textured surface and Sprite logo.</p>
                                 <ul class="list-unstyled">
                                     <li><small>Volume: 500ml</small></li>
-                                    <li><small>Material: Double-walled insulated steel</small></li>
-                                    <li><small>Use: Hot and cold beverage retention</small></li>
+                                    <li><small>Material: PET plastic with contoured grip</small></li>
+                                    <li><small>Use: Lemon-lime flavored carbonated beverage</small></li>
                                 </ul>
                             </div>
                         </div>
@@ -163,7 +164,7 @@
         <section class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header bg-dark text-white">
+                    <div class="card-header bg-danger text-white">
                         <ul class="nav nav-tabs card-header-tabs" id="media-tabs">
                             <li class="nav-item">
                                 <a class="nav-link active text-white" data-bs-toggle="tab"
@@ -183,21 +184,21 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <h5>Product Details</h5>
-                                        <p>Our 3D product line features innovative designs that combine functionality
-                                            with aesthetic appeal. Each product is crafted with attention to detail and
-                                            using sustainable materials wherever possible.</p>
-                                        <p>Interact with our 3D models to explore every angle and feature of our
-                                            products. Use the controls provided to customize your viewing experience.
-                                        </p>
+                                        <p>Our 3D Coca-Cola product line features iconic beverage containers that combine 
+                                           functionality with the world-famous branding. Each product is crafted with 
+                                           attention to detail and authentic brand elements.</p>
+                                        <p>Interact with our 3D models to explore every angle and feature of these 
+                                           iconic Coca-Cola product containers. Use the controls provided to customize 
+                                           your viewing experience.</p>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="bg-light p-3 rounded">
                                             <h6>Key Features</h6>
                                             <ul>
-                                                <li>Ergonomic design</li>
-                                                <li>Sustainable materials</li>
-                                                <li>Premium finish</li>
-                                                <li>Innovative technology</li>
+                                                <li>Authentic brand designs</li>
+                                                <li>Detailed texturing</li>
+                                                <li>Realistic materials</li>
+                                                <li>Accurate proportions</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -207,14 +208,13 @@
                             <div class="tab-pane fade" id="gallery-tab">
                                 <div class="row g-3">
                                     <div class="col-md-4">
-                                        <img src="./textures/jar.jpg" alt="jar" class="img-fluid rounded">
+                                        <img src="./textures/coca-cola.jpg" alt="Coke Can" class="img-fluid rounded">
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="./textures/soda.jpg" alt="soda" class="img-fluid rounded">
+                                        <img src="./textures/soda-can.jpg" alt="Fanta Can" class="img-fluid rounded">
                                     </div>
                                     <div class="col-md-4">
-                                        <img src="./textures/water-bottle.jpg" alt="water-bottle"
-                                            class="img-fluid rounded">
+                                        <img src="./textures/soda.jpg" alt="Sprite Bottle" class="img-fluid rounded">
                                     </div>
                                 </div>
                             </div>
@@ -235,21 +235,21 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="bg-danger text-white py-4 mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>3D Vision</h5>
-                    <p class="small">Experience Products in 3D</p>
-                    <p class="small">&copy; 2025 3D Vision. All rights reserved.</p>
+                    <h5>MyCola</h5>
+                    <p class="small">Experience Coca-Cola Products in 3D</p>
+                    <p class="small">&copy; 2025 Mohamed Osama A MANSOURI (Student ID: 283142). All rights reserved.</p>
                 </div>
                 <div class="col-md-3">
                     <h6>Links</h6>
                     <ul class="list-unstyled">
                         <li><a href="index.html" class="text-white-50">Home</a></li>
                         <li><a href="about.html" class="text-white-50">About</a></li>
-                        <li><a href="#" class="text-white-50">Statement of Originality</a></li>
-                        <li><a href="https://github.com/yourusername/3d-product-showcase" target="_blank"
+                        <li><a href="statement.html" class="text-white-50">Statement of Originality</a></li>
+                        <li><a href="https://github.com/yourusername/3d-cola-showcase" target="_blank"
                                 class="text-white-50">GitHub</a></li>
                     </ul>
                 </div>

@@ -27,25 +27,33 @@
         .card {
             margin-bottom: 20px;
         }
+        
+        .text-coca-cola {
+            color: #E61A27;
+        }
+        
+        .bg-coca-cola {
+            background-color: #E61A27;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="submission-container">
         <div class="text-center submission-heading">
-            <h1 class="mb-3">3D App Assignment</h1>
+            <h1 class="mb-3 text-coca-cola">3D Coca-Cola Products Showcase</h1>
             <p class="lead">Student Submission Information</p>
         </div>
         
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-coca-cola text-white">
                 <h5 class="mb-0">Student Information</h5>
             </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong>Name:</strong>
-                        <span>Mohamed Osama A MANSOURI 
-                        </span>
+                        <span>Mohamed Osama A MANSOURI</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         <strong>Student ID:</strong>
@@ -70,15 +78,15 @@
             <div class="card-body">
                 <h6 class="card-subtitle mb-3 text-muted">Project Details</h6>
                 <p class="card-text">
-                    This 3D App showcases three beverage product models with interactive controls.
+                    This 3D App showcases three Coca-Cola brand beverage container models with interactive controls.
                     The application is built using Three.js for 3D rendering and Bootstrap for the user interface.
                 </p>
                 
                 <h6 class="card-subtitle mb-3 mt-4 text-muted">Included 3D Models</h6>
                 <ul>
-                    <li><strong>Jar Container</strong> - A brown container with ridged cap for easy opening</li>
-                    <li><strong>Soda Can</strong> - Bright red aluminum can with pull tab</li>
-                    <li><strong>Thermal Bottle</strong> - Yellow insulated bottle with metallic cap and handle</li>
+                    <li><strong>Coke Can</strong> - Classic red Coca-Cola can design with iconic branding</li>
+                    <li><strong>Fanta Can</strong> - Bright orange container with vibrant Fanta branding</li>
+                    <li><strong>Sprite Bottle</strong> - Green-tinted transparent bottle with contoured design and Sprite logo</li>
                 </ul>
                 
                 <h6 class="card-subtitle mb-3 mt-4 text-muted">Interactive Features</h6>
@@ -108,7 +116,17 @@
                     <li><strong>Bootstrap 5</strong> - Responsive UI framework</li>
                     <li><strong>Font Awesome</strong> - Icon library</li>
                     <li><strong>Blender</strong> - 3D modeling software</li>
-                </ul>                
+                </ul>
+                
+                <h6 class="card-subtitle mb-3 mt-4 text-muted">Applied Assignment Concepts</h6>
+                <ul>
+                    <li>Integration of 3D models with a responsive web interface</li>
+                    <li>Implementation of wireframe mode toggle as required</li>
+                    <li>Content swapping functionality for product information and media</li>
+                    <li>Interactive lighting controls</li>
+                    <li>Custom CSS logo and branding</li>
+                    <li>Three Coca-Cola product models with one enhanced complexity model (Sprite Bottle)</li>
+                </ul>
             </div>
         </div>
         
@@ -134,22 +152,29 @@
                     <li>Bootstrap documentation - <a href="https://getbootstrap.com/" target="_blank">https://getbootstrap.com/</a></li>
                     <li>Font Awesome icons - <a href="https://fontawesome.com/" target="_blank">https://fontawesome.com/</a></li>
                 </ul>
+                
+                <p class="card-text mt-3">
+                    A more detailed statement of originality can be found on the <a href="statement.html">Statement of Originality</a> page.
+                </p>
             </div>
         </div>
         
         <div class="card">
-            <div class="card-header bg-danger text-white">
+            <div class="card-header bg-coca-cola text-white">
                 <h5 class="mb-0">Links & Resources</h5>
             </div>
             <div class="card-body">
                 <div class="d-grid gap-2">
-                    <a href="index.html" class="btn btn-primary">
+                    <a href="index.html" class="btn btn-danger">
                         <i class="fas fa-play-circle me-2"></i>Launch 3D Application
                     </a>
                     <a href="about.html" class="btn btn-outline-secondary">
                         <i class="fas fa-info-circle me-2"></i>View About Page
                     </a>
-                    <a href="https://github.com/yourusername/3d-product-showcase" target="_blank" class="btn btn-outline-dark">
+                    <a href="statement.html" class="btn btn-outline-secondary">
+                        <i class="fas fa-file-signature me-2"></i>View Statement of Originality
+                    </a>
+                    <a href="https://github.com/yourusername/3d-cola-showcase" target="_blank" class="btn btn-outline-dark">
                         <i class="fab fa-github me-2"></i>GitHub Repository
                     </a>
                 </div>
@@ -159,14 +184,37 @@
                     <p class="mb-0">
                         This application has been tested on Chrome, Firefox, and Edge browsers.
                         For optimal performance, please use a modern browser with WebGL support.
+                        Testing was conducted during Week 11 as per assignment requirements.
                     </p>
                 </div>
             </div>
         </div>
         
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Required Assignment Files</h5>
+            </div>
+            <div class="card-body">
+                <p>This submission package includes:</p>
+                <ul>
+                    <li><strong>HTML Files</strong>: index.html, about.html, statement.html, submission.html</li>
+                    <li><strong>CSS Files</strong>: style.css</li>
+                    <li><strong>JavaScript Files</strong>: main.js, modelLoader.js, controls.js</li>
+                    <li><strong>3D Models</strong>: 
+                        <ul>
+                            <li>GLB Files: coke_can.glb, fanta_can.glb, sprite_bottle.glb</li>
+                            <li>Blender Files: coke_can.blend, fanta_can.blend, sprite_bottle.blend</li>
+                        </ul>
+                    </li>
+                    <li><strong>Textures & Media</strong>: Brand-specific textures and video</li>
+                </ul>
+                <p>All files have been organized in a clear folder structure for easy navigation.</p>
+            </div>
+        </div>
+        
         <div class="text-center mt-4">
             <p class="text-muted">
-                &copy; 2025 Mohamed Osama A MANSOURI - All Rights Reserved
+                &copy; 2025 Mohamed Osama A MANSOURI - Student ID: 283142
             </p>
         </div>
     </div>
